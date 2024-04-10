@@ -25,7 +25,21 @@ $line-height-base: 1.4;
 $body-bg: #eee;
 $body-color: #555;
 
-  // 3. Include remainder of required Bootstrap stylesheets
+$utilities: (
+        "shadow": (
+                property: box-shadow,
+                class: shadow,
+                state: hover,
+                values: (
+                        null: $box-shadow,
+                        sm: $box-shadow-sm,
+                        lg: $box-shadow-lg,
+                        none: none,
+                )
+        )
+);
+
+// 3. Include remainder of required Bootstrap stylesheets
 @import "../node_modules/bootstrap/scss/variables";
 @import "../node_modules/bootstrap/scss/mixins";
 @import "../node_modules/bootstrap/scss/root";
