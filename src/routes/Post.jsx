@@ -1,6 +1,7 @@
 import {useState} from "react";
 import moment from "moment/moment.js";
 import {NavLink} from "react-router-dom";
+import {CategoryBadge} from "./CategoryBadge.jsx";
 
 const Post = () => {
 
@@ -21,7 +22,7 @@ const Post = () => {
             <div className="d-flex flex-row w-100 justify-content-between">
                 <Breadcrumb/>
                 <div>
-                    <NavLink to={`/categories/${state.category}`} className="badge bg-danger text-decoration-none">{state.category}</NavLink>
+                    <CategoryBadge category={state.category}/>
                 </div>
             </div>
 

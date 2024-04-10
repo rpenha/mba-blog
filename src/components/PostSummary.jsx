@@ -1,17 +1,18 @@
 import moment from "moment";
 import {NavLink} from "react-router-dom";
+import {CategoryBadge} from "../routes/CategoryBadge.jsx";
 
 export const PostSummary = ({entry}) => {
     //const {title, author, cover, category, date, summary}  = entry;
     return (
-        <article className="card rounded-0 shadow-sm">
+        <article className="card rounded-0 shadow-sm shadow-hover">
             {
                 entry.cover &&
                 <img src={entry.cover.url} className="card-img-top rounded-0" alt={entry.cover.title}/>
             }
             <div className="card-body">
                 <div>
-                    <span className="badge bg-danger">{entry.category.title}</span>
+                    <CategoryBadge category={entry.category}/>
                 </div>
 
                 <div className="my-4">
