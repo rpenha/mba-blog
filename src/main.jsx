@@ -6,8 +6,8 @@ import App from "./App.jsx";
 import "./index.scss";
 
 const client = contentful.createClient({
-    space: "xj8ro83rjak0",
-    accessToken: "6KOghxHcVYr8fUT9cSZqy09FfC4HXlDEwglrxngkJqM",
+    space: import.meta.env.VITE_CONTENTFUL_SPACE_ID,
+    accessToken: import.meta.env.VITE_CONTENTFUL_ACCESS_TOKEN,
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
