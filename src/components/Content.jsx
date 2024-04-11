@@ -1,7 +1,7 @@
 import {Routes, Route} from "react-router-dom";
-import Home from "../routes/Home.jsx";
-import NoMatch from "../routes/NoMatch.jsx";
-import Post from "../routes/Post.jsx";
+import Home from "../routes/Home";
+import NoMatch from "../routes/NoMatch";
+import Post from "../routes/Post";
 
 export const Content = () => {
     return (
