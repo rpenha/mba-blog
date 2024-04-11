@@ -39,36 +39,36 @@ const Post = () => {
     if (!state.post) return null;
 
     return (
-        <article className="d-grid g-2 g-md-3">
-
+        <>
             <div className="d-flex flex-row w-100 justify-content-between">
                 <Breadcrumb/>
                 <div>
                     <CategoryBadge category={state.post.category}/>
                 </div>
             </div>
+            <article className="d-grid g-2 g-md-3">
+                <div className="my-3">
+                    <h1>{state.post.title}</h1>
+                    <cite title="Author">by {state.post.author}</cite>
+                    <small className="text-muted d-block">{moment(state.post.date).format("LL")}</small>
+                </div>
 
-            <div className="my-3">
-                <h1>{state.post.title}</h1>
-                <cite title="Author">by {state.post.author}</cite>
-                <small className="text-muted d-block">{moment(state.post.date).format("LL")}</small>
-            </div>
+                <h6 className="my-3">{state.post.summary}</h6>
 
-            <h6 className="my-3">{state.post.summary}</h6>
+                <PostCover cover={state.post.cover}/>
 
-            <PostCover cover={state.post.cover}/>
+                <hr/>
 
-            <hr/>
+                <div className="my-3">
+                    <PostBody body={state.post.body}/>
+                </div>
 
-            <div className="my-3">
-                <PostBody body={state.post.body}/>
-            </div>
+                <hr/>
 
-            <hr/>
+                <NavLink className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</NavLink>
 
-            <NavLink className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</NavLink>
-
-        </article>
+            </article>
+        </>
     )
 }
 

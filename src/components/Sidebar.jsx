@@ -1,6 +1,6 @@
 export const Sidebar = () => {
     return (
-        <section className="col-sm-12 col-md-3 order-first order-md-last">
+        <section className="col-sm-12 col-md-3 mb-3 mb-md-0">
             <div className="sticky-md-top d-grid gy-2">
                 <div className="py-2 ">
                     <div className="h5 border-bottom py-2">Categories</div>
@@ -14,7 +14,7 @@ export const Sidebar = () => {
                 </div>
 
                 <div className="py-2 ">
-                    <div className="h5 border-bottom py-2">Latest posts</div>
+                    <div className="h5 border-bottom py-2">Authors</div>
                     <div className="d-flex flex-column p-0">
                         <a href="#">Lorem ipsum</a>
                         <a href="#">Dolor sit amet</a>
