@@ -1,7 +1,4 @@
-import {NavLink} from "react-router-dom";
-
 export const CategoryBadge = ({category}) => {
-
     const getClasses = (slug) => {
         const classes = ["badge", "text-decoration-none"];
         const classMap = {
@@ -17,10 +14,9 @@ export const CategoryBadge = ({category}) => {
     const classes = getClasses(category.slug);
 
     return (
-        <NavLink
-            to={`/categories/${category.slug}`}
+        <span
             className={classes.join(" ")}>
             {category.title}
-        </NavLink>
+        </span>
     );
 }

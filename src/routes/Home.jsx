@@ -12,7 +12,16 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             const entries = await contentful.getEntries({
-                content_type: "post"
+                content_type: "post",
+                select: [
+                    "fields.title",
+                    "fields.slug",
+                    "fields.author",
+                    "fields.category",
+                    "fields.cover",
+                    "fields.summary",
+                    "sys.createdAt"
+                ].join(",")
             });
 
             const data = entries.items.map(entry => new PostEntry(entry));
