@@ -10,6 +10,7 @@ export const CategoryBadge = ({category}) => {
             tech: "bg-dark",
             movies: "bg-info"
         };
+
         return [...classes, classMap[slug] ?? "bg-warning"];
     }
 

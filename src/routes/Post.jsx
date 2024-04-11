@@ -1,7 +1,7 @@
 import {useState} from "react";
-import moment from "moment/moment.js";
+import moment from "moment";
 import {NavLink} from "react-router-dom";
-import {CategoryBadge} from "./CategoryBadge.jsx";
+import {CategoryBadge} from "../components/CategoryBadge.jsx";
 
 const Post = () => {
 
