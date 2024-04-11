@@ -5,6 +5,12 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@contentful/rich-text-react-renderer':
+    specifier: ^15.19.6
+    version: 15.19.6(react-dom@18.2.0)(react@18.2.0)
+  '@contentful/rich-text-types':
+    specifier: ^16.3.5
+    version: 16.3.5
   bootstrap:
     specifier: ^5.3.3
     version: 5.3.3(@popperjs/core@2.11.8)
@@ -284,6 +290,18 @@ packages:
       '@babel/helper-validator-identifier': 7.22.20
       to-fast-properties: 2.0.0
     dev: true
+
+  /@contentful/rich-text-react-renderer@15.19.6(react-dom@18.2.0)(react@18.2.0):
+    resolution: {integrity: sha512-SPpkr2uSyirsN/uUaek8djqLMGP8nPqSqxoQ8M0VJcfD9+INKK56vjmteNr5dBbqAZO/PJMxT1S8to9BndpinQ==}
+    engines: {node: '>=6.0.0'}
+    peerDependencies:
+      react: ^16.8.6 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.8.6 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@contentful/rich-text-types': 16.3.5
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    dev: false
 
   /@contentful/rich-text-types@16.3.5:
     resolution: {integrity: sha512-ZLq6p5uyQXg+i1XGDFu4tAc2VYS12S1KA/jIOyyZjNgC1DvDajsi1JzuiBuOuMEhi1sKEUy6Ry3Yr9jsQtOKuQ==}
