@@ -1,6 +1,6 @@
 import moment from "moment";
 import {NavLink} from "react-router-dom";
-import {CategoryBadge} from "./CategoryBadge.jsx";
+import {CategoryBadge} from "./CategoryBadge";
 
 export const PostSummary = ({entry}) => {
     return (

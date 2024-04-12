@@ -1,5 +1,5 @@
-import {Content} from "./Content.jsx";
-import {Sidebar} from "./Sidebar.jsx";
+import {Content} from "./Content";
+import {Sidebar} from "./Sidebar";
 
 const MainPanel = () => {
     return (

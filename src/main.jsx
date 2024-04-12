@@ -1,8 +1,8 @@
 import ReactDOM from "react-dom/client";
 import {BrowserRouter} from "react-router-dom";
 import * as contentful from "contentful";
-import {ContentfulContext} from "./contexts.js";
-import App from "./App.jsx";
+import {ContentfulContext} from "./contexts";
+import App from "./App";
 import "./index.scss";
 
 const client = contentful.createClient({
