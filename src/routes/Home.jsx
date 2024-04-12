@@ -30,9 +30,6 @@ const Home = () => {
                 ...s,
                 posts: [...data]
             }));
-
-            // console.log(entries);
-            console.log(data);
         }
 
         fetchData();
