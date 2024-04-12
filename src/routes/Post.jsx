@@ -46,6 +46,7 @@ const Post = () => {
                 </div>
             </div>
             <article className="d-grid g-2 g-md-3">
+                <PostCover cover={state.post.cover}/>
                 <div className="my-3">
                     <h1>{state.post.title}</h1>
                     <cite title="Author">by {state.post.author}</cite>
@@ -53,8 +54,6 @@ const Post = () => {
                 </div>
 
                 <h6 className="my-3">{state.post.summary}</h6>
-
-                <PostCover cover={state.post.cover}/>
 
                 <hr/>
 
