@@ -89,10 +89,10 @@ const PostBody = ({body}) => {
         renderNode: {
             [BLOCKS.PARAGRAPH]: (node, children) => {
                 const hyperlinkNode = node.content.find(x => x.nodeType === "hyperlink");
-                if (!hyperlinkNode)
-                    return <p className="lead mb-4">{children}</p>;
-                if (hyperlinkNode.data.uri.indexOf(youtubeLink) > 0)
-                    return children;
+
+                return hyperlinkNode && hyperlinkNode.data.uri.indexOf(youtubeLink) > 0
+                    ? children :
+                    <p className="lead mb-4">{children}</p>;
             },
             [BLOCKS.EMBEDDED_ASSET]: (node) => (
                 <Picture title={node.data.target.fields.title} src={node.data.target.fields.file.url}/>
