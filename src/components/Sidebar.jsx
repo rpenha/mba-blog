@@ -20,9 +20,7 @@ export const Sidebar = () => {
 
 const CategoriesPanel = () => {
     const contentful = useContext(ContentfulContext);
-    const [state, setState] = useState({
-        categories: []
-    });
+    const [state, setState] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -51,11 +49,14 @@ const CategoriesPanel = () => {
         fetchData();
 
     }, [contentful]);
-    return(
+    return (
         <>
             <div className="h5 border-bottom py-2">Categories</div>
             <div className="d-flex flex-column p-0">
-                {state.categories.map(x => <NavLink key={x.id} to={`/categories/${x.slug}`}>{x.title}</NavLink>)}
+                {state
+                    ? state.categories.map(x => <NavLink key={x.id} to={`/categories/${x.slug}`}>{x.title}</NavLink>)
+                    : <TextPlaceholder/>
+                }
             </div>
         </>
     )
@@ -63,9 +64,7 @@ const CategoriesPanel = () => {
 
 const AuthorsPanel = () => {
     const contentful = useContext(ContentfulContext);
-    const [state, setState] = useState({
-        authors: []
-    });
+    const [state, setState] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -94,12 +93,25 @@ const AuthorsPanel = () => {
         fetchData();
 
     }, [contentful]);
-    return(
+    return (
         <>
             <div className="h5 border-bottom py-2">Authors</div>
             <div className="d-flex flex-column p-0">
-                {state.authors.map(x => <NavLink key={x.id} to={`/authors/${x.slug}`}>{x.name}</NavLink>)}
+                {state
+                    ? state.authors.map(x => <NavLink key={x.id} to={`/authors/${x.slug}`}>{x.name}</NavLink>)
+                    : <TextPlaceholder/>
+                }
             </div>
         </>
     )
 }
+
+const TextPlaceholder = () => (
+    <div className="d-grid gap-2">
+        <span className="placeholder col-6"></span>
+        <span className="placeholder w-75"></span>
+        <span className="placeholder w-75"></span>
+        <span className="placeholder w-25"></span>
+        <span className="placeholder w50"></span>
+    </div>
+)

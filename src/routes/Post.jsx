@@ -9,14 +9,12 @@ import CategoryBadge from "../components/CategoryBadge";
 import YoutubePlayer from "../components/YoutubePlayer";
 import Picture from "../components/Picture";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
+import Loading from "../components/Loading";
 
 const Post = () => {
     const contentful = useContext(ContentfulContext);
     const {post} = useParams();
-    const initialState = {
-        post: null,
-    };
-    const [state, setState] = useState(initialState);
+    const [state, setState] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -36,9 +34,7 @@ const Post = () => {
         fetchData();
     }, [post, contentful]);
 
-    if (!state.post) return null;
-
-    return (
+    return state ? (
         <>
             <div className="d-flex flex-row w-100 justify-content-between">
                 <Breadcrumb items={[
@@ -67,7 +63,7 @@ const Post = () => {
 
             </article>
         </>
-    )
+    ) : <Loading/>
 }
 
 const PostCover = ({cover}) => (

@@ -4,17 +4,14 @@ import {ContentfulContext} from "../contexts";
 import PostEntry from "../utils";
 import PostSummary from "../components/PostSummary";
 import Paginator from "../components/Paginator";
+import Loading from "../components/Loading";
 
 const Posts = () => {
     const contentful = useContext(ContentfulContext);
     const {page} = useParams();
     const pageIndex = parseInt(page ?? 1) - 1;
     const limit = 2;
-    const [state, setState] = useState({
-        totalEntries: 0,
-        limit: limit,
-        posts: []
-    });
+    const [state, setState] = useState();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -48,14 +45,12 @@ const Posts = () => {
 
     }, [contentful, pageIndex, limit]);
 
-    if (state.posts.length === 0) return null;
-
-    return (
+    return state ? (
         <div className="g-0">
             {state.posts.map(post => <PostSummary key={post.id} entry={post}/>)}
             <Paginator pageIndex={pageIndex} limit={state.limit} totalEntries={state.totalEntries}/>
         </div>
-    );
+    ) : <Loading/>;
 }
 
 export default Posts;
