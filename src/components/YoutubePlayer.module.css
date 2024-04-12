@@ -1,0 +1,10 @@
+.YoutubeVideoContainer {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    iframe {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+}

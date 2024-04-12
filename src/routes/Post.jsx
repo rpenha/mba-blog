@@ -2,10 +2,12 @@ import {useContext, useEffect, useState} from "react";
 import moment from "moment";
 import {ContentfulContext} from "../contexts";
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
-import {BLOCKS} from '@contentful/rich-text-types';
+import {BLOCKS, INLINES} from '@contentful/rich-text-types';
 import {NavLink, useParams} from "react-router-dom";
 import {CategoryBadge} from "../components/CategoryBadge";
 import {PostEntry} from "../utils";
+import YoutubePlayer from "../components/YoutubePlayer.jsx";
+import Picture from "../components/Picture.jsx";
 
 const Post = () => {
     const contentful = useContext(ContentfulContext);
@@ -23,10 +25,7 @@ const Post = () => {
             });
 
             const data = entries.items[0];
-            console.log(data);
             const postEntry = new PostEntry(data);
-
-            console.log(postEntry);
 
             setState(s => ({
                 ...s,
@@ -86,18 +85,24 @@ const Breadcrumb = () => {
 const PostCover = ({cover}) => cover && <img src={cover.url} className="rounded-0 img-fluid my-4" alt={cover.title}/>
 
 const PostBody = ({body}) => {
+    const youtubeLink = "youtube.com/embed"
     const options = {
         renderNode: {
-            [BLOCKS.PARAGRAPH]: (node, children) => <p className="lead mb-4">{children}</p>,
+            [BLOCKS.PARAGRAPH]: (node, children) => {
+                const hyperlinkNode = node.content.find(x => x.nodeType === "hyperlink");
+                if (!hyperlinkNode)
+                    return <p className="lead mb-4">{children}</p>;
+                if (hyperlinkNode.data.uri.indexOf(youtubeLink) > 0)
+                    return children;
+            },
             [BLOCKS.EMBEDDED_ASSET]: (node) => (
-                <div className="d-flex m-0 align-items-center flex-column my-4 p-2 shadow-sm">
-                    <img className="mx-auto d-block img-fluid mb-1" src={node.data.target.fields.file.url}
-                         alt={node.data.target.fields.title}/>
-                    <cite className="text-muted">
-                        <small>{node.data.target.fields.title}</small>
-                    </cite>
-                </div>
+                <Picture title={node.data.target.fields.title} src={node.data.target.fields.file.url}/>
             ),
+            [INLINES.HYPERLINK]: (node) => {
+                return node.data.uri.indexOf(youtubeLink) !== -1 ?
+                    <YoutubePlayer uri={node.data.uri}/> :
+                    <a href={node.data.uri}>{node.content[0].value}</a>;
+            }
         },
     };
     return (
