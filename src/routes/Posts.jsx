@@ -1,6 +1,6 @@
-import {ContentfulContext} from "../contexts";
 import {useContext, useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
+import {ContentfulContext} from "../contexts";
 import PostEntry from "../utils";
 import PostSummary from "../components/PostSummary";
 import Paginator from "../components/Paginator";
@@ -48,6 +48,7 @@ const Posts = () => {
 
     }, [contentful, pageIndex, limit]);
 
+    if (state.posts.length === 0) return null;
 
     return (
         <div className="g-0">
