@@ -6,8 +6,9 @@ import {BLOCKS, INLINES} from '@contentful/rich-text-types';
 import {NavLink, useParams} from "react-router-dom";
 import {CategoryBadge} from "../components/CategoryBadge";
 import {PostEntry} from "../utils";
-import YoutubePlayer from "../components/YoutubePlayer.jsx";
-import Picture from "../components/Picture.jsx";
+import YoutubePlayer from "../components/YoutubePlayer";
+import Picture from "../components/Picture";
+import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 
 const Post = () => {
     const contentful = useContext(ContentfulContext);
@@ -40,7 +41,10 @@ const Post = () => {
     return (
         <>
             <div className="d-flex flex-row w-100 justify-content-between">
-                <Breadcrumb/>
+                <Breadcrumb items={[
+                    new BreadcrumbItem("Home", "/"),
+                    new BreadcrumbItem("Posts"),
+                ]}/>
                 <div>
                     <CategoryBadge category={state.post.category}/>
                 </div>
@@ -67,17 +71,6 @@ const Post = () => {
 
             </article>
         </>
-    )
-}
-
-const Breadcrumb = () => {
-    return (
-        <nav aria-label="breadcrumb">
-            <ol className="breadcrumb">
-                <li className="breadcrumb-item"><NavLink to="/">Home</NavLink></li>
-                <li className="breadcrumb-item active" aria-current="page">Posts</li>
-            </ol>
-        </nav>
     )
 }
 
