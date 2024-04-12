@@ -46,8 +46,6 @@ const CategoriesPanel = () => {
                 ...s,
                 categories: [...data]
             }));
-
-            console.log(data);
         }
 
         fetchData();
@@ -91,8 +89,6 @@ const AuthorsPanel = () => {
                 ...s,
                 authors: [...data]
             }));
-
-            console.log(data);
         }
 
         fetchData();
