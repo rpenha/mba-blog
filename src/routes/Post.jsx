@@ -4,8 +4,8 @@ import {ContentfulContext} from "../contexts";
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import {BLOCKS, INLINES} from '@contentful/rich-text-types';
 import {NavLink, useParams} from "react-router-dom";
-import {CategoryBadge} from "../components/CategoryBadge";
-import {PostEntry} from "../utils";
+import PostEntry from "../utils";
+import CategoryBadge from "../components/CategoryBadge";
 import YoutubePlayer from "../components/YoutubePlayer";
 import Picture from "../components/Picture";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
@@ -74,7 +74,9 @@ const Post = () => {
     )
 }
 
-const PostCover = ({cover}) => cover && <img src={cover.url} className="rounded-0 img-fluid my-4" alt={cover.title}/>
+const PostCover = ({cover}) => (
+    cover && <img src={cover.url} className="rounded-0 img-fluid my-4" alt={cover.title}/>
+)
 
 const PostBody = ({body}) => {
     const youtubeLink = "youtube.com/embed"

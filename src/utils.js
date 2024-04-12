@@ -1,4 +1,4 @@
-export class PostEntry {
+class PostEntry {
     constructor(entry) {
         this.id = entry.sys.id;
         this.title = entry.fields.title;
@@ -26,3 +26,5 @@ class Cover {
         this.url = url;
     }
 }
+
+export default PostEntry;

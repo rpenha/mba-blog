@@ -1,4 +1,4 @@
-export const CategoryBadge = ({category}) => {
+const CategoryBadge = ({category}) => {
     const getClasses = (slug) => {
         const classes = ["badge", "text-decoration-none"];
         const classMap = {
@@ -20,3 +20,5 @@ export const CategoryBadge = ({category}) => {
         </span>
     );
 }
+
+export default CategoryBadge;
