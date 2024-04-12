@@ -9,16 +9,15 @@ const Posts = () => {
     const contentful = useContext(ContentfulContext);
     const {page} = useParams();
     const pageIndex = parseInt(page ?? 1) - 1;
-    console.log(page);
+    const limit = 2;
     const [state, setState] = useState({
         totalEntries: 0,
-        limit: 2,
+        limit: limit,
         posts: []
     });
 
     useEffect(() => {
         const fetchData = async () => {
-            const limit = state.limit;
             const skip = pageIndex * limit;
             const query = {
                 content_type: "post",
@@ -47,7 +46,7 @@ const Posts = () => {
 
         fetchData();
 
-    }, [contentful, pageIndex]);
+    }, [contentful, pageIndex, limit]);
 
 
     return (
