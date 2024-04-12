@@ -48,7 +48,7 @@ const Posts = () => {
     return state ? (
         <div className="g-0">
             {state.posts.map(post => <PostSummary key={post.id} entry={post}/>)}
-            <Paginator pageIndex={pageIndex} limit={state.limit} totalEntries={state.totalEntries}/>
+            <Paginator pageIndex={pageIndex} limit={limit} totalEntries={state.totalEntries}/>
         </div>
     ) : <Loading/>;
 }
