@@ -33,7 +33,7 @@ const Post = () => {
             }));
         };
         fetchData();
-    }, [post]);
+    }, [post, contentful]);
 
     if (!state.post) return null;
 
