@@ -61,11 +61,7 @@ const Post = () => {
 
                 <hr/>
 
-                <div className="my-3">
-                    <PostBody body={state.post.body}/>
-                </div>
-
-                <hr/>
+                <PostBody body={state.post.body}/>
 
                 <NavLink className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</NavLink>
 
@@ -94,8 +90,12 @@ const PostBody = ({body}) => {
             ),
             [INLINES.HYPERLINK]: (node) => {
                 return node.data.uri.indexOf(youtubeLink) !== -1 ?
-                    <YoutubePlayer uri={node.data.uri}/> :
-                    <a href={node.data.uri}>{node.content[0].value}</a>;
+                    <div className="mb-4">
+                        <YoutubePlayer uri={node.data.uri}/>
+                    </div> :
+                    <p className="lead mb-4">
+                        <a href={node.data.uri}>{node.content[0].value}</a>
+                    </p>;
             }
         },
     };
