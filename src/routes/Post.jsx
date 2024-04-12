@@ -93,9 +93,7 @@ const PostBody = ({body}) => {
                     <div className="mb-4">
                         <YoutubePlayer uri={node.data.uri}/>
                     </div> :
-                    <p className="lead mb-4">
-                        <a href={node.data.uri}>{node.content[0].value}</a>
-                    </p>;
+                    <a href={node.data.uri}>{node.content[0].value}</a>;
             }
         },
     };
