@@ -3,7 +3,6 @@ import {NavLink} from "react-router-dom";
 import {CategoryBadge} from "./CategoryBadge.jsx";
 
 export const PostSummary = ({entry}) => {
-    //const {title, author, cover, category, date, summary}  = entry;
     return (
         <NavLink className="text-decoration-none" to={`/posts/${entry.slug}`}>
             <article className="card rounded-0 shadow-sm shadow-hover mb-4 mb-md-5">
