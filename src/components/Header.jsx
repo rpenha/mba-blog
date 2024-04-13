@@ -7,7 +7,10 @@ const Header = () => {
         <header className="bg-body border-bottom shadow-sm w-100">
             <nav className="navbar py-1 py-md-3">
                 <div className="container d-flex justify-content-center justify-content-md-start">
-                    <Link className="btn btn-lg btn-dark" to="/" >
+                    <Link className="btn btn-dark d-inline-block d-md-none" to="/" >
+                        <FontAwesomeIcon icon={faCouch} size="1x" inverse/>
+                    </Link>
+                    <Link className="btn btn-lg btn-dark d-none d-md-inline-block" to="/" >
                         <FontAwesomeIcon icon={faCouch} size="1x" inverse/>
                     </Link>
                     <span className="mx-2 text-nowrap fs-5 fw-bolder d-block d-md-none">[ This must be the place ]</span>
