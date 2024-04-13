@@ -1,7 +1,6 @@
 import {NavLink} from "react-router-dom";
 
 const Paginator = ({pageIndex, limit, totalEntries}) => {
-    console.log([pageIndex, limit, totalEntries]);
     const isLastPage = (pageIndex + 1) * limit >= totalEntries;
     const previous = pageIndex === 1 ? "/" : `/page/${pageIndex}`;
     const next = `/page/${pageIndex + 2}`;
