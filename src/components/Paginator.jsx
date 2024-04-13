@@ -22,7 +22,7 @@ const Paginator = ({pageIndex, limit, totalEntries}) => {
                         (
                             <>
                                 <NavLink className="btn btn-outline-dark col-4" to={previous}>Previous</NavLink>
-                                <span className="btn btn-outline-dark col-4 disabled">Page 2</span>
+                                <span className="btn btn-outline-dark col-4 disabled">Page {pageIndex + 1}</span>
                                 <NavLink
                                     className={["btn btn-outline-dark col-4", isLastPage ? "disabled" : null].join(" ")}
                                     to={next}>Next</NavLink>
