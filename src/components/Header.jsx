@@ -12,8 +12,6 @@ const Header = () => {
                     </Link>
                     <span className="mx-2 text-nowrap fs-5 fw-bolder d-block d-md-none">[ This must be the place ]</span>
                     <span className="mx-2 text-nowrap fs-3 fw-bolder d-none d-md-block">[ This must be the place ]</span>
-
-                    {/*<span className="mx-0 mx-md-2 my-2 my-md-1 h3 fw-bolder">This must be the place</span>*/}
                 </div>
             </nav>
         </header>
