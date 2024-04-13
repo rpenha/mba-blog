@@ -67,7 +67,7 @@ const Post = () => {
 }
 
 const PostCover = ({cover}) => (
-    cover && <img src={cover.url} className="rounded-0 img-fluid my-4" alt={cover.title}/>
+    cover && <img src={cover.url} className="rounded-0 img-fluid my-4 w-100" alt={cover.title}/>
 )
 
 const PostBody = ({body}) => {
