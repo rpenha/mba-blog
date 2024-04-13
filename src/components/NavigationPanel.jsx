@@ -6,7 +6,7 @@ const NavigationPanel = ({heading, items}) => (
         <div className="d-flex flex-column p-0">
             {
                 items
-                    ? items.map(x => <NavLink key={x.id} to={x.to}>{x.caption}</NavLink>)
+                    ? items.map(x => <NavLink className="link-offset-2 link-offset-3-hover link-underline link-underline-opacity-0 link-underline-opacity-75-hover" key={x.id} to={x.to}>{x.caption}</NavLink>)
                     : <TextPlaceholder/>
             }
         </div>
