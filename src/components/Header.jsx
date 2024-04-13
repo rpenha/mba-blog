@@ -8,7 +8,7 @@ const Header = () => {
             <nav className="navbar py-1 py-md-3">
                 <div className="container d-flex justify-content-center justify-content-md-start">
                     <Link className="btn btn-lg btn-dark" to="/" >
-                        <FontAwesomeIcon icon={faCouch} size="1x" />
+                        <FontAwesomeIcon icon={faCouch} size="1x" inverse/>
                     </Link>
                     <span className="mx-2 text-nowrap fs-5 fw-bolder d-block d-md-none">[ This must be the place ]</span>
                     <span className="mx-2 text-nowrap fs-3 fw-bolder d-none d-md-block">[ This must be the place ]</span>
