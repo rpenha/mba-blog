@@ -1,4 +1,6 @@
 import {useEffect, useState} from "react";
+import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
+import {faHourglassHalf} from "@fortawesome/free-solid-svg-icons";
 
 const Loading = () => {
     const [state, setState] = useState();
@@ -14,7 +16,10 @@ const Loading = () => {
 
     return (
         <div className="d-flex justify-content-center align-items-center vh-100 vw-100 fixed-top bg-body">
-            {state && <div className="h1">⏳ Loading...</div>}
+            {state &&
+                <div className="h1">
+                    <FontAwesomeIcon icon={faHourglassHalf}/> Loading...
+                </div>}
         </div>
     );
 }
