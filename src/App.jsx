@@ -12,7 +12,7 @@ function App() {
     const [state, setState] = useState();
 
     useEffect(() => {
-        if (!authors) return;
+        if (!categories) return;
         setState(s => ({
             ...s,
             categories: [...categories],
