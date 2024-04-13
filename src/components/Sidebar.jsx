@@ -1,6 +1,5 @@
-import {NavLink} from "react-router-dom";
-import CategoriesNavigation from "./CategoriesNavigation.jsx";
-import AuthorsNavigation from "./AuthorsNavigation.jsx";
+import CategoriesNavigation from "./CategoriesNavigation";
+import AuthorsNavigation from "./AuthorsNavigation";
 
 export const Sidebar = () => {
     return (
