@@ -3,7 +3,7 @@ import AuthorsNavigation from "./AuthorsNavigation";
 
 export const Sidebar = () => {
     return (
-        <section className="col-sm-12 col-md-3 mb-3 mb-md-0">
+        <section className="col-sm-12 col-md-3 mb-3 mb-md-0 d-none d-md-block">
             <div className="sticky-md-top d-grid gy-2">
                 <div className="py-2 ">
                     <CategoriesNavigation/>
