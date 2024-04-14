@@ -1,9 +1,20 @@
-import {NavLink} from "react-router-dom";
+import {NavLink, useLocation} from "react-router-dom";
 
-const Paginator = ({pageIndex, limit, totalEntries}) => {
+const Pagination = ({pageIndex, limit, totalEntries}) => {
+    const {pathname} = useLocation();
+
+    const getBasePath = (pathname) => {
+        if (!pathname) return null;
+        const re = /\/page\/\d+$/g;
+        const path = pathname.replace(re, "");
+        return path !== "/" ? path : "";
+    }
+
+    const basePath  = getBasePath(pathname);
     const isLastPage = (pageIndex + 1) * limit >= totalEntries;
-    const previous = pageIndex === 1 ? "/" : `/page/${pageIndex}`;
-    const next = `/page/${pageIndex + 2}`;
+
+    const previous = `${basePath}/page/${pageIndex}`;
+    const next = `${basePath}/page/${pageIndex + 2}`;
     const variations = [
         "btn-group btn-group-lg w-100 d-none d-md-block",
         "btn-group w-100 d-block d-md-none"
@@ -14,7 +25,7 @@ const Paginator = ({pageIndex, limit, totalEntries}) => {
             {variations.map((x, i) => (
                 <div key={i} className={x}>
                     {
-                        pageIndex === 0 &&
+                        pageIndex === 0 && !isLastPage &&
                         <NavLink className="btn btn-outline-dark col-12" to={next}>View more stories</NavLink>
                     }
                     {
@@ -35,4 +46,4 @@ const Paginator = ({pageIndex, limit, totalEntries}) => {
     )
 }
 
-export default Paginator;
+export default Pagination;

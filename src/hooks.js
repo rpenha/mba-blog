@@ -32,7 +32,7 @@ export const useCategories = () => {
 
     }, [contentful]);
 
-    return [categories];
+    return {categories};
 }
 
 export const useAuthors = () => {
@@ -64,19 +64,41 @@ export const useAuthors = () => {
 
     }, [contentful]);
 
-    return [authors];
+    return {authors};
 }
 
 export const usePosts = () => {
     const contentful = useContext(ContentfulContext);
-    const {page} = useParams();
+    const {page, categorySlug, authorSlug} = useParams();
     const [posts, setPosts] = useState();
     const pageIndex = parseInt(page ?? 1) - 1;
-    const pageLimit = 4;
+    const pageLimit = 3;
+    const skip = pageIndex * pageLimit;
 
     useEffect(() => {
+        const buildFilter = () => {
+            let filter = {};
+
+            if (categorySlug) {
+                filter = {
+                    ...filter,
+                    "fields.category.sys.contentType.sys.id": "category",
+                    "fields.category.fields.slug[match]": categorySlug
+                };
+            }
+
+            if (authorSlug) {
+                filter = {
+                    ...filter,
+                    "fields.author.sys.contentType.sys.id": "author",
+                    "fields.author.fields.slug[match]": authorSlug
+                };
+            }
+
+            return filter;
+        }
+
         const fetchData = async () => {
-            const skip = pageIndex * pageLimit;
             const query = {
                 content_type: "post",
                 limit: pageLimit,
@@ -90,7 +112,8 @@ export const usePosts = () => {
                     "fields.cover",
                     "fields.summary",
                     "sys.createdAt"
-                ].join(",")
+                ].join(","),
+                ...buildFilter()
             };
 
             const entries = await contentful.getEntries(query);
@@ -107,9 +130,9 @@ export const usePosts = () => {
 
         fetchData();
 
-    }, [contentful, pageIndex, pageLimit]);
+    }, [contentful, categorySlug, authorSlug, pageIndex, pageLimit, skip]);
 
-    return [posts];
+    return {posts};
 }
 
 export const usePost = () => {
@@ -121,7 +144,7 @@ export const usePost = () => {
         const fetchData = async () => {
             const entries = await contentful.getEntries({
                 content_type: "post",
-                'fields.slug[in]': postSlug
+                "fields.slug": postSlug
             });
 
             const data = entries.items[0];

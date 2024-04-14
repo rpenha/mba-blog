@@ -7,8 +7,8 @@ import {useAuthors, useCategories} from "./hooks";
 import {useEffect, useState} from "react";
 
 function App() {
-    const [categories] = useCategories();
-    const [authors] = useAuthors();
+    const {categories} = useCategories();
+    const {authors} = useAuthors();
     const [state, setState] = useState();
 
     useEffect(() => {
