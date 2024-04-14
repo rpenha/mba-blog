@@ -12,7 +12,7 @@ const AuthorsNavigation = () => {
         to: `/authors/${x.slug}`
     }))
 
-    return <NavigationPanel heading="Contributors" items={items}/>;
+    return <NavigationPanel heading="Authors" items={items}/>;
 }
 
 export default AuthorsNavigation;
