@@ -4,6 +4,7 @@ import {usePosts} from "../hooks";
 import Posts from "../components/Posts";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 import {AppNavigationContext} from "../contexts";
+import {Helmet} from "react-helmet-async";
 
 const Categories = () => {
     const {posts} = usePosts();
@@ -15,6 +16,9 @@ const Categories = () => {
 
     return (
         <>
+            <Helmet>
+                <title>Category: {category.title}</title>
+            </Helmet>
             <div className="mb-4">
                 <Breadcrumb items={[
                     new BreadcrumbItem("Home", "/"),

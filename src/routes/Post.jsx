@@ -8,12 +8,16 @@ import YoutubePlayer from "../components/YoutubePlayer";
 import Picture from "../components/Picture";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 import Loading from "../components/Loading";
+import {Helmet} from "react-helmet-async";
 
 const Post = () => {
     const {post} = usePost();
 
     return post ? (
         <>
+            <Helmet>
+                <title>{post.title}</title>
+            </Helmet>
             <div className="d-flex flex-row w-100 justify-content-between">
                 <Breadcrumb items={[
                     new BreadcrumbItem("Home", "/"),
