@@ -1,55 +1,15 @@
-import {useContext, useEffect, useState} from "react";
-import {useParams} from "react-router-dom";
-import {ContentfulContext} from "../contexts";
-import PostEntry from "../utils";
+import {usePosts} from "../hooks";
 import PostSummary from "../components/PostSummary";
 import Paginator from "../components/Paginator";
 import Loading from "../components/Loading";
 
 const Posts = () => {
-    const contentful = useContext(ContentfulContext);
-    const {page} = useParams();
-    const pageIndex = parseInt(page ?? 1) - 1;
-    const limit = 4;
-    const [state, setState] = useState();
+    const [posts] = usePosts();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const skip = pageIndex * limit;
-            const query = {
-                content_type: "post",
-                limit: limit,
-                skip: skip,
-                order: "-sys.createdAt",
-                select: [
-                    "fields.title",
-                    "fields.slug",
-                    "fields.author",
-                    "fields.category",
-                    "fields.cover",
-                    "fields.summary",
-                    "sys.createdAt"
-                ].join(",")
-            };
-
-            const entries = await contentful.getEntries(query);
-            const data = entries.items.map(entry => new PostEntry(entry));
-
-            setState(s => ({
-                ...s,
-                totalEntries: entries.total,
-                posts: [...data]
-            }));
-        }
-
-        fetchData();
-
-    }, [contentful, pageIndex, limit]);
-
-    return state ? (
+    return posts ? (
         <div className="g-0">
-            {state.posts.map(post => <PostSummary key={post.id} entry={post}/>)}
-            <Paginator pageIndex={pageIndex} limit={limit} totalEntries={state.totalEntries}/>
+            {posts.entries.map(post => <PostSummary key={post.id} entry={post}/>)}
+            <Paginator pageIndex={posts.pageIndex} limit={posts.pageLimit} totalEntries={posts.totalEntries}/>
         </div>
     ) : <Loading/>;
 }

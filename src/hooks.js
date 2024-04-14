@@ -1,5 +1,7 @@
 import {useContext, useEffect, useState} from "react";
 import {ContentfulContext} from "./contexts";
+import {useParams} from "react-router-dom";
+import PostEntry from "./utils.js";
 
 export const useCategories = () => {
     const contentful = useContext(ContentfulContext);
@@ -63,4 +65,49 @@ export const useAuthors = () => {
     }, [contentful]);
 
     return [authors];
+}
+
+export const usePosts = () => {
+    const contentful = useContext(ContentfulContext);
+    const {page} = useParams();
+    const [posts, setPosts] = useState();
+    const pageIndex = parseInt(page ?? 1) - 1;
+    const pageLimit = 4;
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const skip = pageIndex * pageLimit;
+            const query = {
+                content_type: "post",
+                limit: pageLimit,
+                skip: skip,
+                order: "-sys.createdAt",
+                select: [
+                    "fields.title",
+                    "fields.slug",
+                    "fields.author",
+                    "fields.category",
+                    "fields.cover",
+                    "fields.summary",
+                    "sys.createdAt"
+                ].join(",")
+            };
+
+            const entries = await contentful.getEntries(query);
+            const data = entries.items.map(entry => new PostEntry(entry));
+
+            setPosts(s => ({
+                ...s,
+                entries: [...data],
+                pageLimit: pageLimit,
+                pageIndex: pageIndex,
+                totalEntries: entries.total
+            }));
+        }
+
+        fetchData();
+
+    }, [contentful, pageIndex, pageLimit]);
+
+    return [posts];
 }
