@@ -3,12 +3,12 @@ const CategoryBadge = ({category}) => {
         const classes = ["badge", "text-decoration-none"];
         const classMap = {
             general: "bg-danger",
-            cycling: "bg-success",
-            tech: "bg-dark",
+            sports: "bg-success",
+            "software-engineering": "bg-smash",
             movies: "bg-info"
         };
 
-        return [...classes, classMap[slug] ?? "bg-warning"];
+        return [...classes, classMap[slug] ?? "bg-dark"];
     }
 
     const classes = getClasses(category.slug);
