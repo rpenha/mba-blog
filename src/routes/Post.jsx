@@ -1,10 +1,8 @@
-import {useContext, useEffect, useState} from "react";
 import moment from "moment";
-import {ContentfulContext} from "../contexts";
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import {BLOCKS, INLINES} from '@contentful/rich-text-types';
-import {NavLink, useParams} from "react-router-dom";
-import PostEntry from "../utils";
+import {NavLink} from "react-router-dom";
+import {usePost} from "../hooks";
 import CategoryBadge from "../components/CategoryBadge";
 import YoutubePlayer from "../components/YoutubePlayer";
 import Picture from "../components/Picture";
@@ -12,29 +10,9 @@ import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 import Loading from "../components/Loading";
 
 const Post = () => {
-    const contentful = useContext(ContentfulContext);
-    const {post} = useParams();
-    const [state, setState] = useState();
+    const {post} = usePost();
 
-    useEffect(() => {
-        const fetchData = async () => {
-            const entries = await contentful.getEntries({
-                content_type: "post",
-                'fields.slug[in]': post
-            });
-
-            const data = entries.items[0];
-            const postEntry = new PostEntry(data);
-
-            setState(s => ({
-                ...s,
-                post: {...postEntry}
-            }));
-        };
-        fetchData();
-    }, [post, contentful]);
-
-    return state ? (
+    return post ? (
         <>
             <div className="d-flex flex-row w-100 justify-content-between">
                 <Breadcrumb items={[
@@ -42,22 +20,22 @@ const Post = () => {
                     new BreadcrumbItem("Posts"),
                 ]}/>
                 <div>
-                    <CategoryBadge category={state.post.category}/>
+                    <CategoryBadge category={post.category}/>
                 </div>
             </div>
             <article className="d-grid g-2 g-md-3">
-                <PostCover cover={state.post.cover}/>
+                <PostCover cover={post.cover}/>
                 <div className="my-3">
-                    <h1>{state.post.title}</h1>
-                    <cite title="Author">by {state.post.author}</cite>
-                    <small className="text-muted d-block">{moment(state.post.date).format("LL")}</small>
+                    <h1>{post.title}</h1>
+                    <cite title="Author">by {post.author}</cite>
+                    <small className="text-muted d-block">{moment(post.date).format("LL")}</small>
                 </div>
 
-                <h6 className="my-3">{state.post.summary}</h6>
+                <h6 className="my-3">{post.summary}</h6>
 
                 <hr/>
 
-                <PostBody body={state.post.body}/>
+                <PostBody body={post.body}/>
 
                 <NavLink className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</NavLink>
 

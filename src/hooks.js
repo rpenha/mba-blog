@@ -111,3 +111,26 @@ export const usePosts = () => {
 
     return [posts];
 }
+
+export const usePost = () => {
+    const contentful = useContext(ContentfulContext);
+    const {postSlug} = useParams();
+    const [post, setPost] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            const entries = await contentful.getEntries({
+                content_type: "post",
+                'fields.slug[in]': postSlug
+            });
+
+            const data = entries.items[0];
+            const postEntry = new PostEntry(data);
+
+            setPost(() => ({...postEntry}));
+        };
+        fetchData();
+    }, [postSlug, contentful]);
+
+    return {post};
+}

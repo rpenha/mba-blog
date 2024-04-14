@@ -9,7 +9,7 @@ export const Content = () => {
             <Routes>
                 <Route path="/" element={<Posts/>}/>
                 <Route path="/page/:page" element={<Posts/>}/>
-                <Route path="/posts/:post" element={<Post/>}/>
+                <Route path="/posts/:postSlug" element={<Post/>}/>
                 <Route path="*" element={<NoMatch/>}/>
             </Routes>
         </section>
