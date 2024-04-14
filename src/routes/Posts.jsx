@@ -10,7 +10,7 @@ const Posts = () => {
     const contentful = useContext(ContentfulContext);
     const {page} = useParams();
     const pageIndex = parseInt(page ?? 1) - 1;
-    const limit = 2;
+    const limit = 4;
     const [state, setState] = useState();
 
     useEffect(() => {
@@ -20,6 +20,7 @@ const Posts = () => {
                 content_type: "post",
                 limit: limit,
                 skip: skip,
+                order: "-sys.createdAt",
                 select: [
                     "fields.title",
                     "fields.slug",
