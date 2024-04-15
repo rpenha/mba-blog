@@ -56,15 +56,3 @@ $theme-colors: map-merge($theme-colors, $custom-colors);
 html, body {
   min-height: 100vh;
 }
-
-footer {
-  .h5 {
-    font-size: 1rem;
-  }
-  nav {
-    font-size: 1em;
-    a {
-      color: var(--bs-dark);
-    }
-  }
-}
