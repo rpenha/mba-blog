@@ -21,6 +21,7 @@ const Post = () => {
                 <meta property="og:type" content="article"/>
                 <meta property="og:url" content={window.location.href}/>
                 {post.cover && <meta property="og:image" content={post.cover.url}/>}
+                <meta name="description" content={post.summary}/>
             </Helmet>
             <div className="d-flex flex-row w-100 justify-content-between">
             <Breadcrumb items={[
@@ -39,7 +40,7 @@ const Post = () => {
                     <small className="text-muted d-block">{moment(post.date).format("LL")}</small>
                 </div>
 
-                <h6 className="my-3">{post.summary}</h6>
+                <span className="h6 my-3">{post.summary}</span>
 
                 <hr/>
 
