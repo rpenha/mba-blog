@@ -1,6 +1,5 @@
-import PostSummary from "./PostSummary.jsx";
-import Pagination from "./Pagination.jsx";
-import Loading from "./Loading.jsx";
+import PostSummary from "./PostSummary";
+import Pagination from "./Pagination";
 
 const Posts = ({posts}) => {
     return posts ? (
@@ -8,7 +7,7 @@ const Posts = ({posts}) => {
             {posts.entries.map(post => <PostSummary key={post.id} entry={post}/>)}
             <Pagination pageIndex={posts.pageIndex} limit={posts.pageLimit} totalEntries={posts.totalEntries}/>
         </div>
-    ) : <Loading/>;
+    ) : null;
 }
 
 export default Posts;

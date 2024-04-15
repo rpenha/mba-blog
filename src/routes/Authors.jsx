@@ -1,10 +1,11 @@
 import {useContext} from "react";
 import {useParams} from "react-router-dom";
 import {usePosts} from "../hooks";
+import {Helmet} from "react-helmet-async";
 import Posts from "../components/Posts";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 import {AppNavigationContext} from "../contexts";
-import {Helmet} from "react-helmet-async";
+import Loading from "../components/Loading";
 
 const Authors = () => {
     const {posts} = usePosts();
@@ -14,7 +15,7 @@ const Authors = () => {
     const {authors} = navigation;
     const author = authors.find(x => x.slug === authorSlug);
 
-    return (
+    return posts ? (
         <>
             <Helmet>
                 <title>Author: {author.name}</title>
@@ -27,7 +28,7 @@ const Authors = () => {
             </div>
             <Posts posts={posts}/>
         </>
-    )
+    ) : <Loading/>
 }
 
 export default Authors;

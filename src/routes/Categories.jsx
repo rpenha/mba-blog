@@ -1,10 +1,11 @@
 import {useContext} from "react";
 import {useParams} from "react-router-dom";
+import {Helmet} from "react-helmet-async";
 import {usePosts} from "../hooks";
 import Posts from "../components/Posts";
 import Breadcrumb, {BreadcrumbItem} from "../components/Breadcrumb";
 import {AppNavigationContext} from "../contexts";
-import {Helmet} from "react-helmet-async";
+import Loading from "../components/Loading";
 
 const Categories = () => {
     const {posts} = usePosts();
@@ -14,7 +15,7 @@ const Categories = () => {
     const {categories} = navigation;
     const category = categories.find(x => x.slug === categorySlug);
 
-    return (
+    return posts ? (
         <>
             <Helmet>
                 <title>Category: {category.title}</title>
@@ -27,7 +28,7 @@ const Categories = () => {
             </div>
             <Posts posts={posts}/>
         </>
-    )
+    ) : <Loading/>;
 }
 
 export default Categories;
