@@ -21,7 +21,6 @@ const Categories = () => {
             </Helmet>
             <div className="mb-4">
                 <Breadcrumb items={[
-                    new BreadcrumbItem("Home", "/"),
                     new BreadcrumbItem("Categories"),
                     new BreadcrumbItem(category.title)
                 ]}/>

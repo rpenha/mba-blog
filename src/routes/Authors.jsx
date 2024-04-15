@@ -21,7 +21,6 @@ const Authors = () => {
             </Helmet>
             <div className="mb-4">
                 <Breadcrumb items={[
-                    new BreadcrumbItem("Home", "/"),
                     new BreadcrumbItem("Authors"),
                     new BreadcrumbItem(author.name)
                 ]}/>

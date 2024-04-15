@@ -6,7 +6,7 @@ const Breadcrumb = ({items}) => {
             <ol className="breadcrumb">
                 {items && items.map((item, i) => {
                     return !item.to
-                        ? <li key={i} className="breadcrumb-item active" aria-current="page">{item.caption}</li>
+                        ? <li key={i} className="breadcrumb-item" aria-current="page">{item.caption}</li>
                         : <li key={i} className="breadcrumb-item"><NavLink to={item.to}>{item.caption}</NavLink></li>;
                 })}
             </ol>

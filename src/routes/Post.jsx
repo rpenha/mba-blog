@@ -25,7 +25,6 @@ const Post = () => {
             </Helmet>
             <div className="d-flex flex-row w-100 justify-content-between">
             <Breadcrumb items={[
-                    new BreadcrumbItem("Home", "/"),
                     new BreadcrumbItem("Posts"),
                 ]}/>
                 <div>
