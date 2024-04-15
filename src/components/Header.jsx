@@ -17,7 +17,7 @@ const Header = () => {
                     </div>
                 </nav>
             </header>
-            <header className="d-none d-md-block sticky-top bg-body shadow-sm">
+            <header className="d-none d-md-block bg-body shadow-sm">
                 <nav className="navbar">
                     <div className="container d-flex justify-content-center justify-content-md-start">
                         <Link className="btn btn-lg btn-dark d-inline-block" to="/">
