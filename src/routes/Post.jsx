@@ -17,9 +17,13 @@ const Post = () => {
         <>
             <Helmet>
                 <title>{post.title}</title>
+                <meta property="og:title" content={post.title}/>
+                <meta property="og:type" content="article"/>
+                <meta property="og:url" content={window.location.href}/>
+                {post.cover && <meta property="og:image" content={post.cover.url}/>}
             </Helmet>
             <div className="d-flex flex-row w-100 justify-content-between">
-                <Breadcrumb items={[
+            <Breadcrumb items={[
                     new BreadcrumbItem("Home", "/"),
                     new BreadcrumbItem("Posts"),
                 ]}/>
