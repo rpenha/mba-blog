@@ -5,7 +5,7 @@ import { faCouch } from "@fortawesome/free-solid-svg-icons";
 const Header = () => {
     return (
         <header className="bg-body border-bottom shadow-sm w-100">
-            <nav className="navbar py-1 py-md-3">
+            <nav className="navbar py-3 py-md-3">
                 <div className="container d-flex justify-content-center justify-content-md-start">
                     <Link className="btn btn-dark d-inline-block d-md-none" to="/" >
                         <FontAwesomeIcon icon={faCouch} size="1x" inverse/>
