@@ -8,7 +8,7 @@ export const Sidebar = () => {
     const match = !useMatch("/");
     return (
         <section className="col-sm-12 col-md-3 mb-3 mb-md-0 d-none d-md-block">
-            <div className="sticky-md-top d-grid gy-2">
+            <div className="sticky-md-top d-grid gy-2" style={{top: "5rem"}}>
                 {match &&
                     <div className="py-4 ">
                         <NavLink to="/" className="text-dark text-decoration-none">
