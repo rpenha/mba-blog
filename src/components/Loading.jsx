@@ -15,14 +15,13 @@ const Loading = () => {
         }, timeout)
     }, []);
 
-    return (
+    return state && (
         <DropShadow>
-            {state &&
-                <div className="h1">
-                    <FontAwesomeIcon icon={faHourglassHalf}/> Loading...
-                </div>}
+            <div className="h1">
+                <FontAwesomeIcon icon={faHourglassHalf}/> Loading...
+            </div>
         </DropShadow>
-    );
+    )
 }
 
 export default Loading;
