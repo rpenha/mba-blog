@@ -1,4 +1,4 @@
-const NoMatch = () => (
+const NotFound = () => (
     <div className="d-flex flex-column align-items-center justify-content-center h-50">
         <div className="w-auto">
             <span className="h1">🤷🏻‍♂</span>
@@ -9,4 +9,4 @@ const NoMatch = () => (
     </div>
 )
 
-export default NoMatch;
+export default NotFound;
