@@ -70,12 +70,13 @@ export const useAuthors = () => {
 export const usePosts = () => {
     const contentful = useContext(ContentfulContext);
     const {page, categorySlug, authorSlug} = useParams();
-    const [posts, setPosts] = useState();
+    const [posts, setPosts] = useState(null);
     const pageIndex = parseInt(page ?? 1) - 1;
     const pageLimit = 3;
     const skip = pageIndex * pageLimit;
 
     useEffect(() => {
+        setPosts(() => null);
         const buildFilter = () => {
             let filter = {};
 

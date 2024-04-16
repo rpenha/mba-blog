@@ -1,26 +1,21 @@
 import {useEffect, useState} from "react";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faHourglassHalf} from "@fortawesome/free-solid-svg-icons";
-import DropShadow from "./DropShadow";
+import Overlay from "./Overlay.jsx";
 
 const Loading = () => {
-    const [state, setState] = useState();
+    const [state, setState] = useState(false);
 
     useEffect(() => {
-        const timeout = 250;
-        window.setTimeout(() => {
-            setState(s => ({
-                ...s
-            }));
-        }, timeout)
+        setState(() => true);
     }, []);
 
     return state && (
-        <DropShadow>
+        <Overlay>
             <div className="h1">
-                <FontAwesomeIcon icon={faHourglassHalf}/> Loading...
+                <FontAwesomeIcon icon={faHourglassHalf} className="mx-3"/>Loading...
             </div>
-        </DropShadow>
+        </Overlay>
     )
 }
 

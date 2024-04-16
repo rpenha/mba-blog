@@ -36,12 +36,14 @@ const Footer = () => {
                         </div>
                     </div>
                 </div>
-                <nav className="row gy-2 my-3 gx-5 d-sm-block d-md-none fs-5">
-                    <div className="col-12 col-md-3">
-                        <CategoriesNavigation/>
-                    </div>
-                    <div className="col-12 col-md-3">
-                        <AuthorsNavigation/>
+                <nav className="my-3 gx-5 d-sm-block d-md-none">
+                    <div className="row fs-6">
+                        <div className="col-12 col-md-3">
+                            <CategoriesNavigation/>
+                        </div>
+                        <div className="col-12 col-md-3">
+                            <AuthorsNavigation/>
+                        </div>
                     </div>
                 </nav>
             </div>
