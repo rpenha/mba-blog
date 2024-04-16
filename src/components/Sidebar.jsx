@@ -7,7 +7,7 @@ import {faHouse} from "@fortawesome/free-solid-svg-icons";
 export const Sidebar = () => {
     const match = !useMatch("/");
     return (
-        <section className="col-sm-12 col-md-3 mb-3 mb-md-0 d-none d-md-block">
+        <aside className="col-md-3 mb-3 mb-md-0 d-none d-md-block">
             <div className="sticky-md-top d-grid gy-2">
                 {match &&
                     <div className="py-4 ">
@@ -23,7 +23,7 @@ export const Sidebar = () => {
                     <AuthorsNavigation/>
                 </div>
             </div>
-        </section>
+        </aside>
     );
 }
 
