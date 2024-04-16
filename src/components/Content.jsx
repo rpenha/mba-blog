@@ -3,7 +3,7 @@ import Home from "../routes/Home";
 import Post from "../routes/Post";
 import Categories from "../routes/Categories";
 import Authors from "../routes/Authors";
-import NoMatch from "../routes/NoMatch";
+import NotFound from "../routes/NotFound.jsx";
 
 export const Content = () => {
     return (
@@ -15,7 +15,7 @@ export const Content = () => {
                 <Route path="/categories/:categorySlug" element={<Categories/>}/>
                 <Route path="/categories/:categorySlug/page/:page" element={<Categories/>}/>
                 <Route path="/authors/:authorSlug" element={<Authors/>}/>
-                <Route path="*" element={<NoMatch/>}/>
+                <Route path="*" element={<NotFound/>}/>
             </Routes>
         </section>
     );
