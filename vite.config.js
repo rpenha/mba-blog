@@ -39,5 +39,5 @@ export default defineConfig({
     plugins: [
         react(),
         pluginPurgeCss()
-    ],
+    ]
 })
