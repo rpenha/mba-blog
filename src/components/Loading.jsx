@@ -12,7 +12,7 @@ const Loading = () => {
 
     return state && (
         <Overlay>
-            <div className="h1">
+            <div className="h1 w-100 d-flex justify-content-center align-items-center">
                 <FontAwesomeIcon icon={faHourglassHalf} className="mx-3"/>Loading...
             </div>
         </Overlay>

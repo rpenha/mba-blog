@@ -1,6 +1,6 @@
 import {NavLink, useMatch} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronLeft, faChevronUp, faHouse} from "@fortawesome/free-solid-svg-icons";
+import {faChevronUp, faHouse} from "@fortawesome/free-solid-svg-icons";
 import CategoriesNavigation from "./CategoriesNavigation";
 import AuthorsNavigation from "./AuthorsNavigation";
 
