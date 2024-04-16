@@ -5,7 +5,7 @@ import Loading from "../components/Loading";
 const Home = () => {
     const {posts} = usePosts();
 
-    return <Loading/>;
+    return posts ? <Posts posts={posts}/> : <Loading/>;
 }
 
 export default Home;
