@@ -1,10 +1,12 @@
 import {NavLink, useMatch} from "react-router-dom";
+import {createBrowserHistory} from "history";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faChevronUp, faHouse} from "@fortawesome/free-solid-svg-icons";
+import {faChevronLeft, faChevronUp, faHouse} from "@fortawesome/free-solid-svg-icons";
 import CategoriesNavigation from "./CategoriesNavigation";
 import AuthorsNavigation from "./AuthorsNavigation";
 
 const Footer = () => {
+    const history = createBrowserHistory();
     const match = !useMatch("/");
     return (
         <footer className="py-4 mt-2 mt-md-3 bg-body border-top shadow w-100 align-self-end">
@@ -15,38 +17,18 @@ const Footer = () => {
                     </div>
                     <div className="col-lg-3 d-flex justify-content-center justify-content-lg-start align-items-center">
                         <div className="btn-group py-3 w-100">
-                            {/*<a className="btn btn-outline-dark">*/}
-                            {/*    <FontAwesomeIcon icon={faChevronLeft}/> Back*/}
-                            {/*</a>*/}
                             {match &&
                                 <NavLink to="/" className="btn btn-outline-dark">
                                     <FontAwesomeIcon icon={faHouse}/> Home
                                 </NavLink>
                             }
+                            <button className="btn btn-outline-dark" onClick={() => history.back()}>
+                                <FontAwesomeIcon icon={faChevronLeft}/> Back
+                            </button>
                             <a href="#" className="btn btn-outline-dark">
                                 <FontAwesomeIcon icon={faChevronUp}/> Top
                             </a>
                         </div>
-                        {/*<div className="d-inline-flex d-md-none gap-4 fs-4">*/}
-                        {/*    {match &&*/}
-                        {/*        <NavLink to="/" className="text-muted text-decoration-none">*/}
-                        {/*            <FontAwesomeIcon icon={faHouse}/> home*/}
-                        {/*        </NavLink>*/}
-                        {/*    }*/}
-                        {/*    <a href="#" className="text-muted text-decoration-none">*/}
-                        {/*        <FontAwesomeIcon icon={faChevronUp}/> top*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
-                        {/*<div className="d-none d-md-inline-flex gap-4">*/}
-                        {/*    {match &&*/}
-                        {/*        <NavLink to="/" className="text-muted text-decoration-none">*/}
-                        {/*            <FontAwesomeIcon icon={faHouse}/> home*/}
-                        {/*        </NavLink>*/}
-                        {/*    }*/}
-                        {/*    <a href="#" className="text-muted text-decoration-none">*/}
-                        {/*        <FontAwesomeIcon icon={faChevronUp}/> top*/}
-                        {/*    </a>*/}
-                        {/*</div>*/}
                     </div>
                 </div>
                 <nav className="my-3 gx-5 d-sm-block d-md-none">
