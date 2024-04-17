@@ -1,7 +1,7 @@
 import {useContext, useEffect, useState} from "react";
 import {ContentfulContext} from "./contexts";
 import {useParams} from "react-router-dom";
-import PostEntry from "./utils.js";
+import PostEntry from "./utils";
 
 export const useCategories = () => {
     const contentful = useContext(ContentfulContext);
