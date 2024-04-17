@@ -1,4 +1,5 @@
 import ReactDOM from "react-dom/client";
+import React from "react";
 import {BrowserRouter} from "react-router-dom";
 import * as contentful from "contentful";
 import {ContentfulContext} from "./contexts";
@@ -11,9 +12,11 @@ const client = contentful.createClient({
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <BrowserRouter>
-        <ContentfulContext.Provider value={client}>
-            <App/>
-        </ContentfulContext.Provider>
-    </BrowserRouter>,
+    <React.StrictMode>
+        <BrowserRouter>
+            <ContentfulContext.Provider value={client}>
+                <App/>
+            </ContentfulContext.Provider>
+        </BrowserRouter>
+    </React.StrictMode>,
 )
