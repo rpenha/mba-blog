@@ -1,7 +1,7 @@
 import moment from "moment";
 import {documentToReactComponents} from '@contentful/rich-text-react-renderer';
 import {BLOCKS, INLINES} from '@contentful/rich-text-types';
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {usePost} from "../hooks";
 import CategoryBadge from "../components/CategoryBadge";
 import YoutubePlayer from "../components/YoutubePlayer";
@@ -45,7 +45,7 @@ const Post = () => {
 
                 <PostBody body={post.body}/>
 
-                <NavLink className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</NavLink>
+                <Link className="btn btn-lg btn-outline-dark col-12 my-3" to="/">View more stories</Link>
 
             </article>
         </>

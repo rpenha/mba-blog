@@ -1,4 +1,4 @@
-import {NavLink, useMatch} from "react-router-dom";
+import {Link, useMatch} from "react-router-dom";
 import {createBrowserHistory} from "history";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faChevronLeft, faChevronUp, faHouse} from "@fortawesome/free-solid-svg-icons";
@@ -18,9 +18,9 @@ const Footer = () => {
                     <div className="col-lg-3 d-flex justify-content-center justify-content-lg-start align-items-center">
                         <div className="btn-group py-3 w-100">
                             {match &&
-                                <NavLink to="/" className="btn btn-outline-dark">
+                                <Link to="/" className="btn btn-outline-dark">
                                     <FontAwesomeIcon icon={faHouse}/> Home
-                                </NavLink>
+                                </Link>
                             }
                             <button className="btn btn-outline-dark" onClick={() => history.back()}>
                                 <FontAwesomeIcon icon={faChevronLeft}/> Back

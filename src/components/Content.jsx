@@ -5,7 +5,7 @@ import Categories from "../routes/Categories";
 import Authors from "../routes/Authors";
 import NotFound from "../routes/NotFound.jsx";
 
-export const Content = () => {
+const Content = () => {
     return (
         <section className="col-sm-12 col-md-9 d-grid gy-2 gy-md-3">
             <Routes>
@@ -20,3 +20,5 @@ export const Content = () => {
         </section>
     );
 }
+
+export default Content;

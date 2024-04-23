@@ -1,4 +1,4 @@
-import {NavLink, useLocation} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 
 const Pagination = ({pageIndex, limit, totalEntries}) => {
     const {pathname} = useLocation();
@@ -26,17 +26,17 @@ const Pagination = ({pageIndex, limit, totalEntries}) => {
                 <div key={i} className={x}>
                     {
                         pageIndex === 0 && !isLastPage &&
-                        <NavLink className="btn btn-outline-dark col-12" to={next}>View more stories</NavLink>
+                        <Link className="btn btn-outline-dark col-12" to={next}>View more stories</Link>
                     }
                     {
                         pageIndex > 0 &&
                         (
                             <>
-                                <NavLink className="btn btn-outline-dark col-4" to={previous}>Previous</NavLink>
+                                <Link className="btn btn-outline-dark col-4" to={previous}>Previous</Link>
                                 <span className="btn btn-outline-dark col-4 disabled">Page {pageIndex + 1}</span>
-                                <NavLink
+                                <Link
                                     className={["btn btn-outline-dark col-4", isLastPage ? "disabled" : null].join(" ")}
-                                    to={next}>Next</NavLink>
+                                    to={next}>Next</Link>
                             </>
                         )
                     }

@@ -1,4 +1,4 @@
-import {NavLink} from "react-router-dom";
+import {Link} from "react-router-dom";
 
 const Breadcrumb = ({items}) => {
     return (
@@ -7,7 +7,7 @@ const Breadcrumb = ({items}) => {
                 {items && items.map((item, i) => {
                     return !item.to
                         ? <li key={i} className="breadcrumb-item" aria-current="page">{item.caption}</li>
-                        : <li key={i} className="breadcrumb-item"><NavLink to={item.to}>{item.caption}</NavLink></li>;
+                        : <li key={i} className="breadcrumb-item"><Link to={item.to}>{item.caption}</Link></li>;
                 })}
             </ol>
         </nav>
