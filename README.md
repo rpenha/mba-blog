@@ -1,4 +1,4 @@
-## React Blog
+# React Blog
 
 This is a React SPA blog built on top of Contentful Headless CMS.
 
