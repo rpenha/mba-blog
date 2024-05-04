@@ -1,8 +1,10 @@
-# React Blog
+## React Blog
 
-This is a React SPA blog built on top of Contentful CMS.
+This is a React SPA blog built on top of Contentful Headless CMS.
 
-### Technologies Used
+Running version: [https://blog.penha.net/](https://blog.penha.net/)
+
+### Technology Stack
 
 * **Frontend:**
     * ReactJS: [https://react.dev/](https://react.dev/)
@@ -264,6 +266,38 @@ This blog utilizes Contentful as a headless CMS for managing blog content. Conte
     "urn": "crn:contentful:::content:spaces/xj8ro83rjak0/environments/master/content_types/post"
   }
 }
+```
+
+### Running Infrastructure
+
+```
+
+                +---------------+
+                |     User      |
+                +---------------+
+                        |
+                        v
+                +---------------+        +----------------+
+                |    Browser    |------->|   Contentful   |
+                +---------------+        +----------------+
+                        |
+                        v
+                +---------------+        +----------------+
+                |  Blog Domain  |------->|    Route 53    |
+                +---------------+        +----------------+
+                                                  |
+                                                  v
+                                         +-----------------+       +-----------------+
+                                         |    CloudFront   |------>| AWS Certificate |
+                                         +-----------------+       |     Manager     |
+                                         |    S3 Origin    |       +-----------------+
+                                         +-----------------+
+                                                 |
+                                                 v
+                                        +-------------------+
+                                        | S3 Content Bucket |
+                                        +-------------------+
+                                             
 ```
 
 ### Additional Notes
