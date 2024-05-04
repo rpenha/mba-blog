@@ -2,7 +2,7 @@
 
 This is a React SPA blog built on top of Contentful Headless CMS.
 
-Running version: [https://blog.penha.net/](https://blog.penha.net/)
+Running version: [https://blog.rpenha.net/](https://blog.rpenha.net/)
 
 ### Technology Stack
 
