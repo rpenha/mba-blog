@@ -2,7 +2,7 @@
 
 This is a React SPA blog built on top of Contentful Headless CMS.
 
-Running version: [https://blog.penha.net/](https://blog.penha.net/)
+Running version: [https://blog.rpenha.net/](https://blog.rpenha.net/)
 
 ### Technology Stack
 
@@ -15,7 +15,7 @@ Running version: [https://blog.penha.net/](https://blog.penha.net/)
     * Terser (for JS minification and splitting): [https://terser.org/](https://terser.org/)
     * PurgeCSS (for minimal CSS bundle size): [https://purgecss.com/](https://purgecss.com/)
 * **Package Manager:** pnpm: [https://pnpm.io/](https://pnpm.io/)
-* **Hosting:** AWS Cloudfront & AWS S3 Static Web App Hosting: [https://console.aws.amazon.com/amplify/home](https://console.aws.amazon.com/amplify/home)
+* **Hosting:** AWS Cloudfront & AWS S3 Static Web App Hosting: [https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#using-s3-as-origin](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/DownloadDistS3AndCustomOrigins.html#using-s3-as-origin)
 * **Headless CMS:** Contentful: [https://www.contentful.com/](https://www.contentful.com/)
 
 ### Environment Variables
