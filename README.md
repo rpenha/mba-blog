@@ -1,7 +1,5 @@
 # React Blog
 
----
-
 This is a React SPA blog built on top of Contentful Headless CMS.
 
 Running version: [https://blog.rpenha.net/](https://blog.rpenha.net/)
