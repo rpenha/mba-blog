@@ -1,5 +1,7 @@
 # React Blog
 
+---
+
 This is a React SPA blog built on top of Contentful Headless CMS.
 
 Running version: [https://blog.rpenha.net/](https://blog.rpenha.net/)
@@ -20,12 +22,14 @@ Running version: [https://blog.rpenha.net/](https://blog.rpenha.net/)
 
 ### Environment Variables
 
-The following environment variables are required and should be defined in a `.env` file:
+The following environment variables are required and should be defined in a `.env.production` file:
 
 * `VITE_CONTENTFUL_SPACE_ID`: Your Contentful Space ID
 * `VITE_CONTENTFUL_ACCESS_TOKEN`: Your Contentful Delivery API Access Token (**Important: Keep this secret!**).
 
-**Note:** You should never commit the `.env` file to version control.
+More information about configuring Vite environment variables can be found here: [https://vitejs.dev/guide/env-and-mode#env-variables-and-modes](https://vitejs.dev/guide/env-and-mode#env-variables-and-modes)
+
+**Note:** You should never commit the `.env.production` file to version control.
 
 ### Production Setup Instructions
 
@@ -36,7 +40,7 @@ The following environment variables are required and should be defined in a `.en
    pnpm install
    ```
 
-3. Create a `.env` file in the project root directory and add the required environment variables (see above).
+3. Create a `.env.production` file in the project root directory and add the required environment variables (see above).
 4. Build the project for production:
 
    ```bash
@@ -47,7 +51,7 @@ The following environment variables are required and should be defined in a `.en
 
 5. Deploy the `dist` folder to your AWS S3 bucket and configure Cloudfront for distribution.
 
-### Developement Setup Instructions
+### Development Setup Instructions
 
 1. Clone this repository.
 2. Install dependencies:
@@ -64,6 +68,8 @@ The following environment variables are required and should be defined in a `.en
    ```
 
     This will start a local copy of the app on [http://localhost:5173/](http://localhost:5173/) for development.
+
+**Note:** You should never commit the `.env.local` file to version control.
 
 ### Content Management
 
