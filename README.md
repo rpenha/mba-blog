@@ -42,7 +42,7 @@ More information about configuring Vite environment variables can be found here:
 4. Build the project for production:
 
    ```bash
-   pnpm build
+   pnpm run build
    ```
 
    This will create an optimized production build in the `dist` folder.
@@ -62,7 +62,7 @@ More information about configuring Vite environment variables can be found here:
 4. Build the project for development:
 
    ```bash
-   pnpm dev
+   pnpm run dev
    ```
 
     This will start a local copy of the app on [http://localhost:5173/](http://localhost:5173/) for development.
